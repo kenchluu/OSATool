@@ -1,0 +1,1025 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <!--
+    This section defines project-level properties.
+
+    AssemblyName
+      Name of the output assembly.
+    Configuration
+      Specifies a default value for debug.
+    OutputType
+      Must be "Library" for VSTO.
+    Platform
+      Specifies what CPU the output of this project can run on.
+    NoStandardLibraries
+      Set to "false" for VSTO.
+    RootNamespace
+      In C#, this specifies the namespace given to new files. In VB, all objects are
+      wrapped in this namespace at runtime.
+  -->
+  <PropertyGroup>
+    <ProjectTypeGuids>{BAA0C2D2-18E2-41B9-852F-F413020CAA33};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E8DC1F1F-F283-4CF5-823F-A186268D1240}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <RootNamespace>OSATool</RootNamespace>
+    <AssemblyName>OSATool</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <DefineConstants>VSTO40</DefineConstants>
+    <IsWebBootstrapper>False</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>15.0</OldToolsVersion>
+    <VSTO_TrustAssembliesLocation>true</VSTO_TrustAssembliesLocation>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <PublishUrl>C:\My Files\My App\Program Projects Code\KLTool 101\Publish\Setup\</PublishUrl>
+    <InstallUrl />
+    <TargetCulture>en</TargetCulture>
+    <ApplicationVersion>2.0.0.200</ApplicationVersion>
+    <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateInterval>0</UpdateInterval>
+    <UpdateIntervalUnits>days</UpdateIntervalUnits>
+    <ProductName>OSATool</ProductName>
+    <PublisherName>KenLuu</PublisherName>
+    <SupportUrl />
+    <FriendlyName>OSATool</FriendlyName>
+    <OfficeApplicationDescription />
+    <LoadBehavior>3</LoadBehavior>
+  </PropertyGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.VSTORuntime.4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Studio 2010 Tools for Office Runtime %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <PropertyGroup>
+    <!--
+      OfficeApplication
+        Add-in host application
+    -->
+    <OfficeApplication>Excel</OfficeApplication>
+  </PropertyGroup>
+  <!--
+    This section defines properties that are set when the "Debug" configuration is selected.
+
+    DebugSymbols
+      If "true", create symbols (.pdb). If "false", do not create symbols.
+    DefineConstants
+      Constants defined for the preprocessor.
+    EnableUnmanagedDebugging
+      If "true", starting the debugger will attach both managed and unmanaged debuggers.
+    Optimize
+      If "true", optimize the build output. If "false", do not optimize.
+    OutputPath
+      Output path of project relative to the project file.
+    WarningLevel
+      Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!--
+    This section defines properties that are set when the "Release" configuration is selected.
+
+    DebugSymbols
+      If "true", create symbols (.pdb). If "false", do not create symbols.
+    DefineConstants
+      Constants defined for the preprocessor.
+    EnableUnmanagedDebugging
+      If "true", starting the debugger will attach both managed and unmanaged debuggers.
+    Optimize
+      If "true", optimize the build output. If "false", do not optimize.
+    OutputPath
+      Output path of project relative to the project file.
+    WarningLevel
+      Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!--
+    This section specifies references for the project.
+  -->
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="Autodesk.AutoCAD.Interop">
+      <HintPath>Libary\CAD2010\Autodesk.AutoCAD.Interop.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Autodesk.AutoCAD.Interop.Common">
+      <HintPath>Libary\CAD2010\Autodesk.AutoCAD.Interop.Common.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.5.3.3, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.3.3\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="ETABSv1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=453d728ef24c6f5e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libary\ETABSV22\ETABSv1.dll</HintPath>
+    </Reference>
+    <Reference Include="iTextSharp">
+      <HintPath>itext\iTextSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\Shared\Visual Studio Tools for Office\PIA\Office15\Microsoft.Office.Interop.Word.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Vbe.Interop, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\Shared\Visual Studio Tools for Office\PIA\Office15\Microsoft.Vbe.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualStudio.Tools.Applications.Runtime, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="OpenAI, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b4187f3e65366280, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenAI.2.1.0\lib\netstandard2.0\OpenAI.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="RhinoCommon">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Rhino 7\System\RhinoCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="SAFEv1">
+      <HintPath>Libary\SAFE21\SAFEv1.dll</HintPath>
+    </Reference>
+    <Reference Include="SAP2000v1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=453d728ef24c6f5e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libary\SAPV24\SAP2000v1.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="StructProEngine">
+      <HintPath>Libary\StructPro\StructProEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ClientModel, Version=1.2.1.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ClientModel.1.2.1\lib\netstandard2.0\System.ClientModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.1\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory.Data, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.Data.6.0.0\lib\net461\System.Memory.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.10, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.6.0.10\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Tedds.TeddsCalcIA, Version=22.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TeklaTeddsAPI.22.2.0\lib\net\Tedds.TeddsCalcIA.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Tedds.TeddsIA, Version=22.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TeklaTeddsAPI.22.2.0\lib\net\Tedds.TeddsIA.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Tekla.Structures, Version=2021.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tekla.Structures.2021.0.0\lib\net40\Tekla.Structures.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.Catalogs, Version=2021.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tekla.Structures.Catalogs.2021.0.0\lib\net40\Tekla.Structures.Catalogs.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.Datatype, Version=2021.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tekla.Structures.Datatype.2021.0.0\lib\net40\Tekla.Structures.Datatype.dll</HintPath>
+    </Reference>
+    <Reference Include="Tekla.Structures.Model, Version=2021.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tekla.Structures.Model.2021.0.0\lib\net40\Tekla.Structures.Model.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Tools.v4.0.Framework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Excel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Tools.Common.v4.0.Utilities, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <!--
+    This section defines the user source files that are part of the project.
+     
+    A "Compile" element specifies a source file to compile.
+    An "EmbeddedResource" element specifies an .resx file for embedded resources.
+    A "None" element specifies a file that is not to be passed to the compiler (for instance, 
+    a text file or XML file).
+    The "AppDesigner" element specifies the directory where the application properties files
+    can be found.
+  -->
+  <ItemGroup>
+    <Compile Include="Form_AssignWB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AssignWB.Designer.cs">
+      <DependentUpon>Form_AssignWB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_AssignWS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AssignWS.Designer.cs">
+      <DependentUpon>Form_AssignWS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Export.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Export.Designer.cs">
+      <DependentUpon>Form_Export.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Macro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Macro.Designer.cs">
+      <DependentUpon>Form_Macro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_MacroWB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_MacroWB.Designer.cs">
+      <DependentUpon>Form_MacroWB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_MacroWS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_MacroWS.Designer.cs">
+      <DependentUpon>Form_MacroWS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_RunStep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_RunStep.Designer.cs">
+      <DependentUpon>Form_RunStep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel_G1_RunMacro.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel_G1_RunMacro.Designer.cs">
+      <DependentUpon>Panel_G1_RunMacro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel_G1_Display.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel_G1_Display.Designer.cs">
+      <DependentUpon>Panel_G1_Display.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel_G1_CalcWS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel_G1_CalcWS.Designer.cs">
+      <DependentUpon>Panel_G1_CalcWS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel_G2_Miscs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel_G2_Miscs.Designer.cs">
+      <DependentUpon>Panel_G2_Miscs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel_G2_Table.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel_G2_Table.Designer.cs">
+      <DependentUpon>Panel_G2_Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel_G1_CalcWB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel_G1_CalcWB.Designer.cs">
+      <DependentUpon>Panel_G1_CalcWB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel_G3_Design_Shell.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel_G3_Design_Shell.Designer.cs">
+      <DependentUpon>Panel_G3_Design_Shell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel_G3_Design_Slab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel_G3_Design_Slab.Designer.cs">
+      <DependentUpon>Panel_G3_Design_Slab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel_G1_DataQ.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel_G1_DataQ.Designer.cs">
+      <DependentUpon>Panel_G1_DataQ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel_G1_Sheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel_G1_Sheet.Designer.cs">
+      <DependentUpon>Panel_G1_Sheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel_G1_Report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel_G1_Report.Designer.cs">
+      <DependentUpon>Panel_G1_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_AssignSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AssignSheet.Designer.cs">
+      <DependentUpon>Form_AssignSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_CADSetElevation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_CADSetElevation.Designer.cs">
+      <DependentUpon>Form_CADSetElevation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_DataSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_DataSetting.Designer.cs">
+      <DependentUpon>Form_DataSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ExcelCalcFolder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ExcelCalcFolder.Designer.cs">
+      <DependentUpon>Form_ExcelCalcFolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_TableListEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_TableListEdit.Designer.cs">
+      <DependentUpon>Form_TableListEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_TableListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_TableListView.Designer.cs">
+      <DependentUpon>Form_TableListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Commands.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Commands.Designer.cs">
+      <DependentUpon>Form_Commands.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Global_Input2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Global_Input2.Designer.cs">
+      <DependentUpon>Form_Global_Input2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Local_Input2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Local_Input2.Designer.cs">
+      <DependentUpon>Form_Local_Input2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Setting.Designer.cs">
+      <DependentUpon>Form_Setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_CalcSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_CalcSetting.Designer.cs">
+      <DependentUpon>Form_CalcSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_CalcList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_CalcList.Designer.cs">
+      <DependentUpon>Form_CalcList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_AssignWSRange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AssignWSRange.Designer.cs">
+      <DependentUpon>Form_AssignWSRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalVar.cs" />
+    <Compile Include="Process_CalcWB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process_CalcWB.Designer.cs">
+      <DependentUpon>Process_CalcWB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process_ExcelData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process_ExcelData.Designer.cs">
+      <DependentUpon>Process_ExcelData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process_SAFEAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process_SAFEAnalysis.Designer.cs">
+      <DependentUpon>Process_SAFEAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process_SAFEDesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process_SAFEDesign.Designer.cs">
+      <DependentUpon>Process_SAFEDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ProgramIndex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ProgramIndex.Designer.cs">
+      <DependentUpon>Form_ProgramIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Global_Input1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Global_Input1.Designer.cs">
+      <DependentUpon>Form_Global_Input1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_AddPointLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AddPointLoad.Designer.cs">
+      <DependentUpon>Form_AddPointLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process_SAFEGeometry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process_SAFEGeometry.Designer.cs">
+      <DependentUpon>Process_SAFEGeometry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_CADTextSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_CADTextSetting.Designer.cs">
+      <DependentUpon>Form_CADTextSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel_G3_Design_Footing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel_G3_Design_Footing.Designer.cs">
+      <DependentUpon>Panel_G3_Design_Footing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel_G3_Design_Beam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel_G3_Design_Beam.Designer.cs">
+      <DependentUpon>Panel_G3_Design_Beam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel_G3_Design_Wall.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel_G3_Design_Wall.Designer.cs">
+      <DependentUpon>Panel_G3_Design_Wall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel_G1_Library.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel_G1_Library.Designer.cs">
+      <DependentUpon>Panel_G1_Library.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FileFolderDialog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GetSystemIcon.cs" />
+    <Compile Include="ListViewColumnSorter.cs" />
+    <Compile Include="Panel_G3_Design_Column.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel_G3_Design_Column.Designer.cs">
+      <DependentUpon>Panel_G3_Design_Column.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process_ETABSGeometry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process_ETABSGeometry.Designer.cs">
+      <DependentUpon>Process_ETABSGeometry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process_SAPGeometry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process_SAPGeometry.Designer.cs">
+      <DependentUpon>Process_SAPGeometry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_SetVariables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_SetVariables.Designer.cs">
+      <DependentUpon>Form_SetVariables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_CADSetOrdinate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_CADSetOrdinate.Designer.cs">
+      <DependentUpon>Form_CADSetOrdinate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process_SAPDesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process_SAPDesign.Designer.cs">
+      <DependentUpon>Process_SAPDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process_CalcWS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process_CalcWS.Designer.cs">
+      <DependentUpon>Process_CalcWS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process_ETABSAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process_ETABSAnalysis.Designer.cs">
+      <DependentUpon>Process_ETABSAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_OutputFactor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_OutputFactor.Designer.cs">
+      <DependentUpon>Form_OutputFactor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Local_Input1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Local_Input1.Designer.cs">
+      <DependentUpon>Form_Local_Input1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process_SAPAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process_SAPAnalysis.Designer.cs">
+      <DependentUpon>Process_SAPAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process_ETABSDesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process_ETABSDesign.Designer.cs">
+      <DependentUpon>Process_ETABSDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Process_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process_Report.Designer.cs">
+      <DependentUpon>Process_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ReportSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ReportSetting.Designer.cs">
+      <DependentUpon>Form_ReportSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_TeddsEngine_Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_TeddsEngine_Setting.Designer.cs">
+      <DependentUpon>Form_TeddsEngine_Setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_TeddsEngine_SheetAssign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_TeddsEngine_SheetAssign.Designer.cs">
+      <DependentUpon>Form_TeddsEngine_SheetAssign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_UserAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_UserAccount.Designer.cs">
+      <DependentUpon>Form_UserAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XmlReader.cs" />
+    <Compile Include="XmlWriter.cs" />
+    <EmbeddedResource Include="Form_AssignWB.resx">
+      <DependentUpon>Form_AssignWB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_AssignWS.resx">
+      <DependentUpon>Form_AssignWS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Export.resx">
+      <DependentUpon>Form_Export.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Macro.resx">
+      <DependentUpon>Form_Macro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_MacroWB.resx">
+      <DependentUpon>Form_MacroWB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_MacroWS.resx">
+      <DependentUpon>Form_MacroWS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_RunStep.resx">
+      <DependentUpon>Form_RunStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel_G1_RunMacro.resx">
+      <DependentUpon>Panel_G1_RunMacro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel_G1_Display.resx">
+      <DependentUpon>Panel_G1_Display.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel_G1_CalcWS.resx">
+      <DependentUpon>Panel_G1_CalcWS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel_G2_Miscs.resx">
+      <DependentUpon>Panel_G2_Miscs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel_G2_Table.resx">
+      <DependentUpon>Panel_G2_Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel_G1_CalcWB.resx">
+      <DependentUpon>Panel_G1_CalcWB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel_G3_Design_Shell.resx">
+      <DependentUpon>Panel_G3_Design_Shell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel_G3_Design_Slab.resx">
+      <DependentUpon>Panel_G3_Design_Slab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel_G1_DataQ.resx">
+      <DependentUpon>Panel_G1_DataQ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel_G1_Sheet.resx">
+      <DependentUpon>Panel_G1_Sheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel_G1_Report.resx">
+      <DependentUpon>Panel_G1_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_AssignSheet.resx">
+      <DependentUpon>Form_AssignSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_CADSetElevation.resx">
+      <DependentUpon>Form_CADSetElevation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_DataSetting.resx">
+      <DependentUpon>Form_DataSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ExcelCalcFolder.resx">
+      <DependentUpon>Form_ExcelCalcFolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_TableListEdit.resx">
+      <DependentUpon>Form_TableListEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_TableListView.resx">
+      <DependentUpon>Form_TableListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Commands.resx">
+      <DependentUpon>Form_Commands.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Global_Input2.resx">
+      <DependentUpon>Form_Global_Input2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Local_Input2.resx">
+      <DependentUpon>Form_Local_Input2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Setting.resx">
+      <DependentUpon>Form_Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_CalcSetting.resx">
+      <DependentUpon>Form_CalcSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_CalcList.resx">
+      <DependentUpon>Form_CalcList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_AssignWSRange.resx">
+      <DependentUpon>Form_AssignWSRange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process_CalcWB.resx">
+      <DependentUpon>Process_CalcWB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process_ExcelData.resx">
+      <DependentUpon>Process_ExcelData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process_SAFEAnalysis.resx">
+      <DependentUpon>Process_SAFEAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process_SAFEDesign.resx">
+      <DependentUpon>Process_SAFEDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ProgramIndex.resx">
+      <DependentUpon>Form_ProgramIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Global_Input1.resx">
+      <DependentUpon>Form_Global_Input1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_AddPointLoad.resx">
+      <DependentUpon>Form_AddPointLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel_G3_Design_Footing.resx">
+      <DependentUpon>Panel_G3_Design_Footing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel_G3_Design_Beam.resx">
+      <DependentUpon>Panel_G3_Design_Beam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel_G3_Design_Wall.resx">
+      <DependentUpon>Panel_G3_Design_Wall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel_G1_Library.resx">
+      <DependentUpon>Panel_G1_Library.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Local_Input1.resx">
+      <DependentUpon>Form_Local_Input1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel_G3_Design_Column.resx">
+      <DependentUpon>Panel_G3_Design_Column.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process_ETABSGeometry.resx">
+      <DependentUpon>Process_ETABSGeometry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process_SAFEGeometry.resx">
+      <DependentUpon>Process_SAFEGeometry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process_SAPGeometry.resx">
+      <DependentUpon>Process_SAPGeometry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_SetVariables.resx">
+      <DependentUpon>Form_SetVariables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_CADSetOrdinate.resx">
+      <DependentUpon>Form_CADSetOrdinate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process_SAPDesign.resx">
+      <DependentUpon>Process_SAPDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process_CalcWS.resx">
+      <DependentUpon>Process_CalcWS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_CADTextSetting.resx">
+      <DependentUpon>Form_CADTextSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process_ETABSAnalysis.resx">
+      <DependentUpon>Process_ETABSAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_OutputFactor.resx">
+      <DependentUpon>Form_OutputFactor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process_SAPAnalysis.resx">
+      <DependentUpon>Process_SAPAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process_ETABSDesign.resx">
+      <DependentUpon>Process_ETABSDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process_Report.resx">
+      <DependentUpon>Process_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ReportSetting.resx">
+      <DependentUpon>Form_ReportSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_OSATool.resx">
+      <DependentUpon>R_OSATool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_TeddsEngine_Setting.resx">
+      <DependentUpon>Form_TeddsEngine_Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_TeddsEngine_SheetAssign.resx">
+      <DependentUpon>Form_TeddsEngine_SheetAssign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_UserAccount.resx">
+      <DependentUpon>Form_UserAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="R_OSATool.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="R_OSATool.Designer.cs">
+      <DependentUpon>R_OSATool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OSATool.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="OSATool.Designer.xml">
+      <DependentUpon>OSATool.cs</DependentUpon>
+    </None>
+    <Compile Include="OSATool.Designer.cs">
+      <DependentUpon>OSATool.Designer.xml</DependentUpon>
+    </Compile>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Gsa_10_2">
+      <Guid>{D526FFF2-D568-4DDD-8937-9E8DB13D8F43}</Guid>
+      <VersionMajor>10</VersionMajor>
+      <VersionMinor>2</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Scripting">
+      <Guid>{420B2830-E718-11CF-893D-00A0C9054228}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Wall1.png" />
+    <None Include="Resources\bulb16.png" />
+    <None Include="Resources\3d_library.png" />
+    <None Include="Resources\Beam1.png" />
+    <None Include="Resources\Building.png" />
+    <None Include="Resources\Calculator copy.png" />
+    <None Include="Resources\checklist.png" />
+    <None Include="Resources\checklistBW.png" />
+    <None Include="Resources\Col.png" />
+    <None Include="Resources\component color.png" />
+    <None Include="Resources\component.png" />
+    <None Include="Resources\computer2.png" />
+    <None Include="Resources\diskette.png" />
+    <None Include="Resources\exclamation.png" />
+    <None Include="Resources\Foot3.png" />
+    <None Include="Resources\gear_white2.png" />
+    <None Include="Resources\graduation.png" />
+    <None Include="Resources\icone-excel-orange.png" />
+    <None Include="Resources\Modeling .png" />
+    <None Include="Resources\pngegg.png" />
+    <None Include="Resources\Report1.png" />
+    <None Include="Resources\skyscraper.png" />
+    <None Include="Resources\Slab4.png" />
+    <None Include="Resources\stopwatch.png" />
+    <None Include="Resources\truss.png" />
+    <None Include="Resources\ETABS.png" />
+    <None Include="Resources\SAFE2k.png" />
+    <None Include="Resources\SAP2000.png" />
+    <None Include="Resources\loop.png" />
+    <None Include="Resources\runnerBW.png" />
+    <None Include="Resources\StructPro Box.png" />
+    <None Include="Resources\excel.png" />
+    <None Include="Resources\3d_library1.png" />
+    <None Include="Resources\Shell.png" />
+    <None Include="Resources\DataTable2.png" />
+    <None Include="Resources\Calculator copy1.png" />
+    <None Include="Resources\GSA.png" />
+    <None Include="Resources\Robot.png" />
+    <None Include="Resources\GSA_Black.png" />
+    <None Include="Resources\Robot_Black.png" />
+    <Content Include="Resources\VBARun2.png" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>KLTool_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>4E0B37A3FE9E78E22EF7B3B64B827ADB729CC279</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>VSTO40;DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>VSTO40;TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <!-- Include the build rules for a C# project. -->
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- Include additional build rules for an Office application add-in. -->
+  <Import Project="$(VSToolsPath)\OfficeTools\Microsoft.VisualStudio.Tools.Office.targets" Condition="'$(VSToolsPath)' != ''" />
+  <!-- This section defines VSTO properties that describe the host-changeable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
+        <ProjectProperties HostName="Excel" HostPackage="{29A7B9D7-A7F1-4328-8EF0-6B2D1A56B2C1}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="Excel" Language="cs" TemplatesPath="VSTOTemplates" DebugInfoExeName="#Software\Microsoft\Office\16.0\Excel\InstallRoot\Path#excel.exe" DebugInfoCommandLine="/x " AddItemTemplatesGuid="{51063C3A-E220-4D12-8922-BDA915ACD783}" />
+        <Host Name="Excel" GeneratedCodeNamespace="KLTool" PublishedHash="69C324AB27932AA2FBF2B7EA72250886FF164DE6" IconIndex="0">
+          <HostItem Name="ThisAddIn" Code="OSATool.cs" CanonicalName="AddIn" PublishedHash="F78891FF164A128E86C41D5ACB5F25891B02B010" CanActivate="false" IconIndex="1" Blueprint="OSATool.Designer.xml" GeneratedCode="OSATool.Designer.cs" />
+        </Host>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
